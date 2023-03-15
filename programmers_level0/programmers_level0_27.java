@@ -9,7 +9,7 @@ public class programmers_level0_27 {
         for(int i = my_string.length()-1; i >= 0; i--){
             answer += my_string.charAt(i);
         }
-        return answer; 
+        return answer;
     }
 
     public static void main(String[] args) {
