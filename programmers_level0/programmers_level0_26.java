@@ -1,6 +1,5 @@
 package programmers_level0;
 //          중앙값 구하기
-
 import java.util.Arrays;
 
 //        중앙값은 어떤 주어진 값들을 크기의 순서대로 정렬했을 때 가장 중앙에 위치하는 값을 의미합니다.
