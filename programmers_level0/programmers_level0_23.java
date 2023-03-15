@@ -17,7 +17,6 @@ public class programmers_level0_23 {
 //            System.out.println(a);
 //        }
 //        return answer;
-
         return IntStream.rangeClosed(num1,num2).map(i -> numbers[i]).toArray();
     }
 
