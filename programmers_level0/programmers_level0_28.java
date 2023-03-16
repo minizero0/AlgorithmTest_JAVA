@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 public class programmers_level0_28 {
     public static int[] solution(int[] numbers) {
 //        int[] arr = Arrays.stream(numbers).map(i -> i * 2).toArray();
-    
+
         for(int i = 0; i <numbers.length; i++){
             numbers[i] *= 2;
             System.out.println(numbers[i]);
