@@ -1,22 +1,36 @@
 package programmers_level1;
-//        나머지가 1이 되는 수 찾기
+//        정수 내림차순으로 배치하기
 
-//  자연수 n이 매개변수로 주어집니다.
-//  n을 x로 나눈 나머지가 1이 되도록 하는 가장 작은 자연수 x를 return 하도록 solution 함수를 완성해주세요.
-//  답이 항상 존재함은 증명될 수 있습니다.
+//  함수 solution은 정수 n을 매개변수로 입력받습니다.
+//  n의 각 자릿수를 큰것부터 작은 순으로 정렬한 새로운 정수를 리턴해주세요.
+//  예를들어 n이 118372면 873211을 리턴하면 됩니다.
+
+import java.util.Arrays;
 
 public class programmers_level1_9 {
-    public static int solution(int n) {
-        int answer = 0;
-        for(int i = 2; i < n; i++){
-            if(n % i == 1){
-                return i;
-            }
+    public static long solution(long n) {
+
+        String number = String.valueOf(n);
+        long arr[] = new long[number.length()];
+        long sum = 0;
+        for(int i = 0; i < number.length(); i++){
+            long j = number.charAt(i) - '0';
+            arr[i] = j;
         }
-        return answer;
+        Arrays.sort(arr);
+        for(int i = 0; i < number.length(); i++){
+            long j = arr[i];
+            System.out.println(j);
+            for(int k = 0; k < i; k++){
+                j *= 10;
+            }
+            sum += j;
+        }
+        return sum;
     }
 
+
     public static void main(String[] args) {
-        System.out.println(solution(10));
+        System.out.println(solution(118372));
     }
 }
