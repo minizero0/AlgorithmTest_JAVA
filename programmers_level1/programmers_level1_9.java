@@ -1,21 +1,22 @@
 package programmers_level1;
-//        정수 제곱근 판별
+//        나머지가 1이 되는 수 찾기
 
-//  임의의 양의 정수 n에 대해, n이 어떤 양의 정수 x의 제곱인지 아닌지 판단하려 합니다.
-//  n이 양의 정수 x의 제곱이라면 x+1의 제곱을 리턴하고,
-//  n이 양의 정수 x의 제곱이 아니라면 -1을 리턴하는 함수를 완성하세요.
+//  자연수 n이 매개변수로 주어집니다.
+//  n을 x로 나눈 나머지가 1이 되도록 하는 가장 작은 자연수 x를 return 하도록 solution 함수를 완성해주세요.
+//  답이 항상 존재함은 증명될 수 있습니다.
 
 public class programmers_level1_9 {
-    public static long solution(long n) {
-        long answer = -1;
-        long num = (long)Math.floor((Math.sqrt(n)));
-        if(num * num == n){
-            return (num+1) * (num+1);
+    public static int solution(int n) {
+        int answer = 0;
+        for(int i = 2; i < n; i++){
+            if(n % i == 1){
+                return i;
+            }
         }
         return answer;
     }
 
     public static void main(String[] args) {
-        System.out.println(solution(9));
+        System.out.println(solution(10));
     }
 }
