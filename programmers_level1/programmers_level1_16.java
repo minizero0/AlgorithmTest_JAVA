@@ -1,21 +1,34 @@
 package programmers_level1;
-//        음양 더하기
+//        제일 작은 수 제거하기
 
-//  어떤 정수들이 있습니다. 이 정수들의 절댓값을 차례대로 담은 정수 배열 absolutes와 이 정수들의 부호를 차례대로 담은 불리언 배열
-//  signs가 매개변수로 주어집니다. 실제 정수들의 합을 구하여 return 하도록 solution 함수를 완성해주세요.
+//  정수를 저장한 배열, arr 에서 가장 작은 수를 제거한 배열을 리턴하는 함수, solution을 완성해주세요.
+//  단, 리턴하려는 배열이 빈 배열인 경우엔 배열에 -1을 채워 리턴하세요.
+//  예를들어 arr이 [4,3,2,1]인 경우는 [4,3,2]를 리턴 하고, [10]면 [-1]을 리턴 합니다.
 
+
+import java.util.Arrays;
 
 public class programmers_level1_16 {
-    public static int solution(int[] absolutes, boolean[] signs) {
-        int answer =0;
-        for(int i = 0; i < absolutes.length; i++){
-            answer += signs[i] ? absolutes[i] : -absolutes[i];
+    public static int[] solution(int[] arr) {
+        if(arr.length -1 == 0){
+            return new int[] {-1};
         }
-        return answer;
+        int array[] = new int[arr.length-1];
+        int min = Arrays.stream(arr).min().getAsInt();
+        int cnt= 0;
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] == min){
+                continue;
+            }else{
+                array[cnt++] = arr[i];
+            }
+        }
+
+        return array;
     }
 
 
     public static void main(String[] args) {
-        System.out.println(solution(new int[] {4,7,12}, new boolean[] {true, false, true}));
+        System.out.println(Arrays.toString(solution(new int[]{10})));
     }
 }
