@@ -26,7 +26,7 @@ public class programmers_level1_15 {
         }
         Arrays.sort(array);
         return array;
-        
+
 
     }
 
