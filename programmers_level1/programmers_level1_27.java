@@ -11,9 +11,9 @@ import java.util.Arrays;
 //유클리드 호제법을 재귀로 활용하여 최소공배수, 최대공약수를 찾음
 public class programmers_level1_27 {
     static int educ(int a, int b){
-        int r = a % b;
-        if(r == 0) return b;
-        else return educ(b, r);
+        int r = a % b;         //큰 숫자를 작은 수로 나눈 나머지 계산
+        if(r == 0) return b;   //나머지가 0이면 작은숫자가 최대공약수 이므로 리턴
+        else return educ(b, r);//나머지가 0이 아니면 재귀로 리턴
     }
 
     public static int[] solution(int n, int m) {
@@ -23,7 +23,7 @@ public class programmers_level1_27 {
         answer[0] = r;
         n = n/r;
         m = m/r;
-        answer[1] = n * m * r;
+        answer[1] = n * m * r;   // 두 수의 최소공배수 = 두 수의 최대 공약수 * 위에서 구한 몫
         return answer;
     }
 
