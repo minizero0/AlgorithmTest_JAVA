@@ -12,16 +12,25 @@ package programmers_level2;
 public class programmers_level2_9 {
     public static int solution(int n) {
         int answer = 0;
-        String s = Integer.toBinaryString(20);
+        String s = Integer.toBinaryString(n);
         for(int i = 0; i < s.length(); i++){
             if(s.charAt(i) == '1') answer++;
         }
-        System.out.println(s);
-        System.out.println(answer);
+
+        for(int i = n+1; i < 1000000; i++){
+            String a = Integer.toBinaryString(i);
+            int cnt = 0;
+            for(int j = 0; j < a.length(); j++){
+                if(a.charAt(j) == '1') cnt++;
+            }
+            if(cnt == answer){
+                return i;
+            }
+        }
         return answer;
     }
 
     public static void main(String[] args) {
-        solution(10);
+        System.out.println(solution(78));
     }
 }
