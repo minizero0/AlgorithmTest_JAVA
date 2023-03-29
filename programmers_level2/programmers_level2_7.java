@@ -1,5 +1,5 @@
 package programmers_level2;
-//          카
+//          카펫
 
 import java.util.Arrays;
 
