@@ -11,13 +11,19 @@ package programmers_level2;
 
 public class programmers_level2_10 {
     public static int solution(int n) {
+        int cnt = 0;
         for(int i = 1; i <= n; i++){
+            int sum = 0;
             for(int j = i; j <= n; j++){
-                
+                sum += j;
+                if(sum == n){
+                    cnt++;
+                    break;
+                }else if(sum > n) break;
             }
         }
 
-        return 0;
+        return cnt;
 
     }
 
