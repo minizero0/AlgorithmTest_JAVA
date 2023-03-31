@@ -15,11 +15,10 @@ package programmers_level2;
 
 public class programmers_level2_13 {
     public static int solution(int n, int a, int b) {
-        int answer = 1;
-        while(true){
-            if(a-b==1 || a-b==-1) break;
-            a = (a/2) + (a%2);
-            b = (b/2) + (b%2);
+        int answer = 0;
+        while(a!=b){
+            a = (a / 2) + (a % 2);
+            b = (b / 2) + (b % 2);
             answer++;
         }
         return answer;
