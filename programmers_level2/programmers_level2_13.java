@@ -12,24 +12,20 @@ package programmers_level2;
 //  처음 라운드에서 A번을 가진 참가자는 경쟁자로 생각하는 B번 참가자와 몇 번째 라운드에서 만나는지 return 하는 solution 함수를 완성해 주세요.
 //  단, A번 참가자와 B번 참가자는 서로 붙게 되기 전까지 항상 이긴다고 가정합니다.
 
-import java.util.Arrays;
 
 public class programmers_level2_13 {
-    public static int solution(int[] people, int limit) {
-        int answer = 0;
-        Arrays.sort(people);
-        int min = 0;
-        for(int i = people.length-1; i >= min; i--){
-            if(people[i] + people[min] <= limit) min++;
+    public static int solution(int n, int a, int b) {
+        int answer = 1;
+        while(true){
+            if(a-b==1 || a-b==-1) break;
+            a = (a/2) + (a%2);
+            b = (b/2) + (b%2);
             answer++;
         }
-
         return answer;
     }
 
     public static void main(String[] args) {
-        System.out.println(solution(new int[] {70, 50, 80, 50}, 100));
-        System.out.println(solution(new int[] {70, 50, 80}, 100));
-
+        System.out.println(solution(8,4,7));
     }
 }
