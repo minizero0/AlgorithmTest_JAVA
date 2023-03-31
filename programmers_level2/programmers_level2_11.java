@@ -9,13 +9,39 @@ package programmers_level2;
 //  s가 "1"이 될 때까지 계속해서 s에 이진 변환을 가했을 때,
 //  이진 변환의 횟수와 변환 과정에서 제거된 모든 0의 개수를 각각 배열에 담아 return 하도록 solution 함수를 완성해주세요.
 
+import java.util.Arrays;
+
 public class programmers_level2_11 {
+
+    public static StringBuilder toBinary(int a){
+        StringBuilder sb = new StringBuilder(Integer.toBinaryString(a));
+        return sb;
+    }
+
     public static int[] solution(String s) {
-        int[] answer = {};
-        return answer;
+        StringBuilder sb = new StringBuilder(s);
+        int cnt = 0;
+        int loop = 0;
+        int a = s.length();
+        while(sb.length() != 1){
+            for(int i = 0; i < sb.length(); i++) {
+                if (sb.charAt(i) == '0'){
+                    sb.deleteCharAt(i);
+                    i -= 1;
+                    cnt++;
+                }
+            }
+            loop++;
+            a = sb.length();
+            sb = toBinary(a);
+        }
+
+        return new int[] {loop, cnt};
     }
 
     public static void main(String[] args) {
-        System.out.println(solution());
+        System.out.println(Arrays.toString(solution("110010101001")));
+        System.out.println(Arrays.toString(solution("01110")));
+        System.out.println(Arrays.toString(solution("1111111")));
     }
 }
