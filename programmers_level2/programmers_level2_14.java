@@ -24,10 +24,10 @@ package programmers_level2;
 public class programmers_level2_14 {
     public static int solution(int n) {
         int ans = 0;
-        while(n > 0){
-            if(n%2==0) n/=2;
+        while(n>0){
+            if(n%2==0) n /= 2;
             else {
-                n-=1;
+                n -= 1;
                 ans++;
             }
         }
