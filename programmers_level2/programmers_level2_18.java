@@ -9,9 +9,18 @@ package programmers_level2;
 //  s가 올바른 괄호 문자열이 되게 하는 x의 개수를 return 하도록 solution 함수를 완성해주세요.
 
 
+import java.util.Stack;
+
 public class programmers_level2_18 {
     public static int solution(String s) {
-        
+        int answer = 0;
+        StringBuilder sb = new StringBuilder(s);
+        for(int i = 0; i < s.length(); i++){
+            System.out.println(sb.toString());
+            sb.append(sb.charAt(0));
+            sb.deleteCharAt(0);
+        }
+        return answer;
     }
 
     public static void main(String[] args) {
