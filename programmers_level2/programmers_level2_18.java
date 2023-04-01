@@ -12,11 +12,34 @@ package programmers_level2;
 import java.util.Stack;
 
 public class programmers_level2_18 {
+    public static boolean isTrue(StringBuilder sb){
+        Stack<Character> stack = new Stack<>();
+        if(sb.charAt(0) == ']' || sb.charAt(0) == '}' || sb.charAt(0) == ')') return false;
+        for(int i = 0; i < sb.length(); i++){
+            if(stack.isEmpty()){
+                stack.push(sb.charAt(i));
+            }else{
+                if(sb.charAt(i)==']'){
+                    if(stack.peek() == '[') stack.pop();
+                    else stack.push(sb.charAt(i));
+                }else if(sb.charAt(i) == '}'){
+                    if(stack.peek() == '{') stack.pop();
+                    else stack.push(sb.charAt(i));
+                }else if(sb.charAt(i) == ')'){
+                    if(stack.peek() == '(') stack.pop();
+                    else stack.push(sb.charAt(i));
+                }else stack.push(sb.charAt(i));
+            }
+        }
+        if(stack.isEmpty()) return true;
+        else return false;
+    }
+
     public static int solution(String s) {
         int answer = 0;
         StringBuilder sb = new StringBuilder(s);
         for(int i = 0; i < s.length(); i++){
-            System.out.println(sb.toString());
+            if(isTrue(sb)) answer++;
             sb.append(sb.charAt(0));
             sb.deleteCharAt(0);
         }
@@ -25,5 +48,7 @@ public class programmers_level2_18 {
 
     public static void main(String[] args) {
         System.out.println(solution("[](){}"));
+        System.out.println(solution("}]()[{"));
+
     }
 }
