@@ -15,8 +15,17 @@ public class programmers_level2_15 {
 
 
     public static int solution(int[] arr) {
-        int ans = 0;
-        return ans;
+        int num = arr[0];
+        for(int i = 0; i < arr.length-1; i++){
+
+            if(arr.length == 1) return arr[0];
+            else{
+                int r = educ(Math.max(num,arr[i+1]), Math.min(num,arr[i+1]));
+                num = num * arr[i+1] / r;
+            }
+        }
+
+        return num;
     }
 
     public static void main(String[] args) {
