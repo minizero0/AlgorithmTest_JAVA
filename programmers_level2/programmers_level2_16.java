@@ -14,11 +14,15 @@ package programmers_level2;
 
 public class programmers_level2_16 {
     public static long solution(int n) {
-        long answer = 0;
-        int one = 1;
-        int two = 2;
+        long[] arr = new long[2001];
+        arr[1] = 1;
+        arr[2] = 2;
+        for(int i = 3; i < arr.length; i++){
+            arr[i] = (arr[i-1] + arr[i-2])%1234567;
+            if(arr.length==n) break;
+        }
 
-        return answer;
+        return arr[n];
     }
 
     public static void main(String[] args) {
