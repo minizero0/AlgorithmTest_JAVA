@@ -9,25 +9,40 @@ package programmers_level2;
 //  경화가 귤 k개를 고를 때 크기가 서로 다른 종류의 수의 최솟값을 return 하도록 solution 함수를 작성해주세요.
 
 
-import java.util.Arrays;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class programmers_level2_19 {
-    public static int solution(int k, int[] tangerine) {
-        Map<Integer, Integer> map = new TreeMap<>();
+    Map<Integer, Integer> map = new TreeMap<>();
+    public int solution(int k, int[] tangerine) {
+        int x = 0, y= 0;
+
         int answer = 0;
         for(int i : tangerine){
             map.put(i, map.getOrDefault(i,0)+1);
         }
 
-        for(int i = 0; i < map.size(); i++){
-            System.out.println(map.get(i));
+        List<Integer> list = new ArrayList<>(map.keySet());
+//        Collections.sort(list, new customComparator());
+        list.sort(((o1, o2) -> map.get(o2) - map.get(o1)));
+          
+        for(int i : list){
+            if (k <= 0) break;
+            answer++;
+            k -= map.get(i);
         }
         return answer;
     }
+//
+//    public class customComparator implements Comparator<Integer> {
+//        @Override
+//        public int compare(Integer o1, Integer o2) {
+//            return map.get(o2).compareTo(map.get(o1));
+//        }
+//    }
 
     public static void main(String[] args) {
-        System.out.println(solution(6,new int[] {1, 3, 2, 5, 4, 5, 2, 3}));
+
+        programmers_level2_19 as = new programmers_level2_19();
+        System.out.println(as.solution(6,new int[] {1, 3, 2, 5, 4, 5, 2, 3}));
     }
 }
