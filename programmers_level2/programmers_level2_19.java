@@ -40,7 +40,7 @@ public class programmers_level2_19 {
 //        }
 //    }
 
-    
+
     public static void main(String[] args) {
 
         programmers_level2_19 as = new programmers_level2_19();
