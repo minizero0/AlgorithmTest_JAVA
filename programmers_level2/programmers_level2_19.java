@@ -24,7 +24,7 @@ public class programmers_level2_19 {
         List<Integer> list = new ArrayList<>(map.keySet());
 //        Collections.sort(list, new customComparator());
         list.sort(((o1, o2) -> map.get(o2) - map.get(o1)));
-          
+
         for(int i : list){
             if (k <= 0) break;
             answer++;
