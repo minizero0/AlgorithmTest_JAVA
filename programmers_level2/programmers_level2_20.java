@@ -8,14 +8,9 @@ package programmers_level2;
 //  각 배포마다 몇 개의 기능이 배포되는지를 return 하도록 solution 함수를 완성하세요.
 
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
-
 public class programmers_level2_20 {
-    public static int[][] solution(int[][] arr1, int[][] arr2) {
-        int[][] answer = {};
+    public static int[] solution(int[] progresses, int[] speeds) {
+        int[] answer = {};
         return answer;
     }
 }
