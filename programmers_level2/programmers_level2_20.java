@@ -10,6 +10,7 @@ package programmers_level2;
 public class programmers_level2_20 {
     public static int[] solution(int[] progresses, int[] speeds) {
         int[] answer = {};
+        int a;
         return answer;
     }
 }
