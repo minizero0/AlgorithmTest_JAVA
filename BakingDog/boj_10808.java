@@ -1,4 +1,4 @@
-package Baekjoon;
+package BakingDog;
 
 //  알파벳 개수
 
