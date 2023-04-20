@@ -16,8 +16,8 @@ import java.util.Stack;
 public class boj_10828 {
     static Stack stack = new Stack();
 
-    public void push(char c){
-        stack.push(c);
+    public void push(String s){
+        stack.push(s);
     }
 
     public void pop(){
@@ -46,7 +46,7 @@ public class boj_10828 {
 
         for(int i = 0; i < n; i++){
             String str = br.readLine();
-            if(str.contains("push")) bs.push(str.charAt(5));
+            if(str.contains("push")) bs.push(str.substring(5));
             else if(str.equals("top")) bs.top();
             else if(str.equals("size")) bs.size();
             else if(str.equals("pop")) bs.pop();
