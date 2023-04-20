@@ -15,51 +15,41 @@ package BakingDog;
 //  모든 명령어를 수행하고 난 후 편집기에 입력되어 있는 문자열을 구하는 프로그램을 작성하시오.
 //  단, 명령어가 수행되기 전에 커서는 문장의 맨 뒤에 위치하고 있다고 한다.
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Stack;
 
 public class boj_1406 {
 
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        Stack stL = new Stack();
+        Stack stR = new Stack();
 
+        String str = br.readLine();
+        for(int i = 0; i < str.length(); i++) stL.push(str.charAt(i));
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        ArrayList<Character> list = new ArrayList<>();
+        int n = Integer.parseInt(br.readLine());
 
-        String str = sc.next();
-        int n = sc.nextInt();
-
-        for(int i = 0; i < str.length(); i++) list.add(str.charAt(i));
-        int cur = list.size();
-        System.out.println("반복시작");
-        while(n > 0) {
-            String a = sc.nextLine();
-            if(a.length()>=1){
-                if (a.equals("L")) {
-                    if (cur > -1)
-                        cur--;
-                } else if (a.equals("D")) {
-                    if (cur < list.size() - 1)
-                        cur++;
-                } else if (a.charAt(0) == 'P'){
-                    if(cur == -1) cur++;
-                    list.add(cur, a.charAt(a.length()-1));
-                    if(cur != 0) cur++;
-                } else if (a.equals("B")){
-                    if(cur > -1){
-                        list.remove(cur);
-                        if(cur > 0) cur--;
-                    }
-
-
+        for(int i = 0; i < n; i++) {
+            String cur = br.readLine();
+            if (cur.equals("L")){
+                if (!stL.empty()) {
+                    stR.push(stL.pop());}
+            } else if (cur.equals("D")){
+                if (!stR.empty()){
+                    stL.push(stR.pop());}
+            } else if (cur.equals("B")){
+                if (!stL.empty()) {
+                    stL.pop();
                 }
-            }else n++;
-            System.out.println(cur);
-            n--;
+            } else if (cur.contains("P")) {
+                    stL.push(cur.charAt(2));
+                }
         }
 
-        for(int i = 0; i < list.size(); i++){
-            System.out.print(list.get(i));
-        }
+        while(!stL.isEmpty()) stR.push(stL.pop());
+        while(!stR.isEmpty()) System.out.print(stR.pop());
     }
 }
