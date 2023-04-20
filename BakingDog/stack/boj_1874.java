@@ -6,5 +6,37 @@ package BakingDog.stack;
 // 임의의 수열이 주어졌을 때 스택을 이용해 그 수열을 만들 수 있는지 없는지, 있다면 어떤 순서로 push와 pop 연산을 수행해야 하는지를 알아낼 수 있다.
 // 이를 계산하는 프로그램을 작성하라.
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Stack;
+
 public class boj_1874 {
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        Stack<Integer> stack = new Stack();
+        StringBuilder sb = new StringBuilder();
+
+        int n = Integer.parseInt(br.readLine());
+        int start = 0;
+
+        for(int i = 0; i < n; i++){
+            int number = Integer.parseInt(br.readLine());
+
+            if(number > start){
+                for(int j = start + 1; j <= number; j++) {
+                    stack.push(j);
+                    sb.append("+").append("\n");
+                }
+                start = number;
+            }else if(stack.peek() != number){
+                System.out.println("NO");
+                return;
+            }
+            stack.pop();
+            sb.append("-").append("\n");
+        }
+        System.out.println(sb);
+    }
 }
