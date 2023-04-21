@@ -11,5 +11,37 @@ package BakingDog.stack;
 // 높이가 9인 두 번째 탑과 높이가 6인 첫 번째 탑이 보낸 레이저 신호는 어떤 탑에서도 수신을 하지 못한다.
 // 탑들의 개수 N과 탑들의 높이가 주어질 때, 각각의 탑에서 발사한 레이저 신호를 어느 탑에서 수신하는지를 알아내는 프로그램을 작성하라.
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Stack;
+import java.util.StringTokenizer;
+
 public class boj_2493 {
+
+    public static void main(String[] args) throws IOException {
+        Stack<int[]> stack = new Stack<>();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+
+        //6 9 5 7 4
+
+        for(int i = 1; i <= n; i++){
+            int top = Integer.parseInt(st.nextToken());
+            while(!stack.isEmpty()){
+                if(stack.peek()[1] >= top){
+                    System.out.print(stack.peek()[0] + " ");
+                    break;
+                }
+                stack.pop();
+            }
+            if(stack.isEmpty()) System.out.println("0 ");
+            stack.push(new int[] {i, top});
+        }
+
+
+
+    }
 }
