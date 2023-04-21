@@ -15,17 +15,15 @@ public class boj_1874 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        Stack<Integer> stack = new Stack();
         StringBuilder sb = new StringBuilder();
 
         int n = Integer.parseInt(br.readLine());
+        Stack<Integer> stack = new Stack<>();
         int start = 0;
-
         for(int i = 0; i < n; i++){
             int number = Integer.parseInt(br.readLine());
-
-            if(number > start){
-                for(int j = start + 1; j <= number; j++) {
+            if(start < number){
+                for(int j = start+1; j <= number; j++){
                     stack.push(j);
                     sb.append("+").append("\n");
                 }
@@ -34,6 +32,7 @@ public class boj_1874 {
                 System.out.println("NO");
                 return;
             }
+
             stack.pop();
             sb.append("-").append("\n");
         }
