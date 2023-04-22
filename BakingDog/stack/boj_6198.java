@@ -9,13 +9,16 @@ public class boj_6198 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        Stack<Integer> stack = new Stack();
         int n = Integer.parseInt(br.readLine());
-        Stack<Integer> stack = new Stack<>();
-        int count = 0;
+        long count = 0;
+
         for(int i = 0; i < n; i++){
             int num = Integer.parseInt(br.readLine());
 
-            while(!stack.isEmpty() && stack.peek() <= num) stack.pop();
+            while(!stack.isEmpty() && stack.peek() <= num){
+                stack.pop();
+            }
             count += stack.size();
             stack.push(num);
         }
