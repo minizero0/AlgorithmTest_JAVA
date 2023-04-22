@@ -15,32 +15,33 @@ import java.util.LinkedList;
 
 public class boj_18258 {
     static Deque queue = new LinkedList();
+    static StringBuilder sb = new StringBuilder();
     String x = "";
     public void push(String n){
         queue.add(n);
     }
-    public void pop(){
-        if(queue.isEmpty()) System.out.println(-1);
-        else System.out.println(queue.remove());
+    public int pop(){
+        if(queue.isEmpty()) return -1;
+        else return (int) queue.remove();
     }
 
-    public void size(){
-        System.out.println(queue.size());
+    public int size(){
+        return queue.size();
     }
 
-    public void empty(){
-        if(queue.isEmpty()) System.out.println(1);
-        else System.out.println(0);
+    public int empty(){
+        if(queue.isEmpty()) return 1;
+        else return 0;
     }
 
-    public void front(){
-        if(!queue.isEmpty()) System.out.println(queue.peek());
-        else System.out.println(-1);
+    public int front(){
+        if(!queue.isEmpty()) return (int) queue.peek();
+        else return -1;
     }
 
-    public void back(){
-        if(!queue.isEmpty()) System.out.println(queue.peekLast());
-        else System.out.println(-1);
+    public int back(){
+        if(!queue.isEmpty()) return (int) queue.peekLast();
+        else return -1;
     }
 
     public static void main(String[] args) throws IOException {
@@ -52,17 +53,17 @@ public class boj_18258 {
             String str = br.readLine();
 
             if(str.equals("pop")){
-                b.pop();
+                sb.append(b.pop()).append("\n");
             }else if(str.equals("size")){
-                b.size();
+                sb.append(b.size()).append("\n");
             }else if(str.equals("front")){
-                b.front();
+                sb.append(b.front()).append("\n");
             }else if(str.equals("back")){
-                b.back();
+                sb.append(b.back()).append("\n");
             }else if(str.contains("push")){
                 b.push(str.substring(5));
             }else if(str.equals("empty")){
-                b.empty();
+                sb.append(b.empty()).append("\n");
             }
         }
     }
