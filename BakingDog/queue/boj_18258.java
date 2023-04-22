@@ -12,12 +12,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.StringTokenizer;
 
 public class boj_18258 {
-    static Deque queue = new LinkedList();
+    static Deque<Integer> queue = new LinkedList();
     static StringBuilder sb = new StringBuilder();
-    String x = "";
-    public void push(String n){
+    public void push(int n){
         queue.add(n);
     }
     public int pop(){
@@ -51,7 +51,6 @@ public class boj_18258 {
 
         for(int i = 0; i < n; i++){
             String str = br.readLine();
-
             if(str.equals("pop")){
                 sb.append(b.pop()).append("\n");
             }else if(str.equals("size")){
@@ -61,11 +60,12 @@ public class boj_18258 {
             }else if(str.equals("back")){
                 sb.append(b.back()).append("\n");
             }else if(str.contains("push")){
-                b.push(str.substring(5));
+                b.push(Integer.parseInt(str.substring(5)));
             }else if(str.equals("empty")){
                 sb.append(b.empty()).append("\n");
             }
         }
+        System.out.println(sb);
     }
 }
 
