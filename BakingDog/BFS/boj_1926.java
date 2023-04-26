@@ -66,10 +66,9 @@ public class boj_1926 {
                     max = area;
                 }
             }
-            System.out.println(count);
-            System.out.println(max);
         }
-
+        System.out.println(count);
+        System.out.println(max);
     }
 
     public static class Pair{
