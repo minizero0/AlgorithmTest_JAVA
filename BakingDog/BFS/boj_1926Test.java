@@ -11,9 +11,9 @@ public class boj_1926Test {
     static int n,m;
     static int[][] arr;
     static boolean[][] visit;
-    static Queue<Pair> qu;
     static int[] dx;
     static int[] dy;
+    static Queue<Pair> qu;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -41,8 +41,8 @@ public class boj_1926Test {
         for(int i = 0; i < n; i++){
             for(int j = 0; j < m; j++){
                 if(arr[i][j] == 0 || visit[i][j]) continue;
-                count++;
                 qu.offer(new Pair(i,j));
+                count++;
                 visit[i][j] = true;
                 area = 0;
 
@@ -63,9 +63,8 @@ public class boj_1926Test {
             }
         }
         System.out.println(count);
-        System.out.println(max);
+        System.out.println(area);
     }
-
 
     public static class Pair{
         int x,y;
