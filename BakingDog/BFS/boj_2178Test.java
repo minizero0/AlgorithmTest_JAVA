@@ -10,12 +10,13 @@ import java.util.StringTokenizer;
 public class boj_2178Test {
 
     public static void main(String[] args) throws IOException {
-        BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
+
         char[][] miro = new char[n][m];
-        int[][] dist= new int[n][m];
+        int[][] dist = new int[n][m];
         int[] dx = {1,0,-1,0};
         int[] dy = {0,1,0,-1};
         Queue<Pair> qu = new LinkedList<>();
@@ -30,6 +31,7 @@ public class boj_2178Test {
 
         qu.offer(new Pair(0,0));
         dist[0][0] = 0;
+
         while(!qu.isEmpty()){
             Pair p = qu.poll();
 
@@ -43,10 +45,9 @@ public class boj_2178Test {
                 dist[n_x][n_y] = dist[p.x][p.y] + 1;
             }
         }
+        System.out.println(dist[n-1][m-1] + 1);
 
-        System.out.println(dist[n-1][m-1]+1);
     }
-
 
 
     public static class Pair{
