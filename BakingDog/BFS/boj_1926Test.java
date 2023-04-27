@@ -8,24 +8,18 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class boj_1926Test {
-    static int n,m;
-    static int[][] arr;
-    static boolean[][] visit;
-    static int[] dx;
-    static int[] dy;
-    static Queue<Pair> qu;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        n = Integer.parseInt(st.nextToken());
-        m = Integer.parseInt(st.nextToken());
-        arr = new int[n][m];
-        visit = new boolean[n][m];
-        qu = new LinkedList<>();
-        dx = new int[] {1,0,-1,0};
-        dy = new int[] {0,1,0,-1};
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
+        int[][] arr = new int[n][m];
+        boolean[][] visit = new boolean[n][m];
+        int[] dx = {1,0,-1,0};
+        int[] dy = {0,1,0,-1};
+        Queue<Pair> qu = new LinkedList<>();
 
         for(int i = 0; i < n; i++){
             st = new StringTokenizer(br.readLine());
@@ -39,10 +33,10 @@ public class boj_1926Test {
         int max = 0;
 
         for(int i = 0; i < n; i++){
-            for(int j = 0; j < m; j++){
+            for(int j = 0 ; j < m; j++){
                 if(arr[i][j] == 0 || visit[i][j]) continue;
-                qu.offer(new Pair(i,j));
                 count++;
+                qu.offer(new Pair(i,j));
                 visit[i][j] = true;
                 area = 0;
 
@@ -53,8 +47,8 @@ public class boj_1926Test {
                         int n_x = p.x + dx[k];
                         int n_y = p.y + dy[k];
                         if(n_x < 0 || n_x >= n || n_y < 0 || n_y >= m) continue;
-                        if(arr[n_x][n_y] == 1 && !visit[n_x][n_y]){
-                            qu.offer(new Pair(n_x,n_y));
+                        if(arr[n_x][n_y] == 1 && !visit[n_x][n_y]) {
+                            qu.offer(new Pair(n_x, n_y));
                             visit[n_x][n_y] = true;
                         }
                     }
