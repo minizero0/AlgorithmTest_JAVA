@@ -17,25 +17,23 @@ public class boj_7576Test {
 
         int[][] tomatos = new int[n][m];
         int[][] days = new int[n][m];
+        Queue<Pair> qu = new LinkedList<>();
         int[] dx = {1,0,-1,0};
         int[] dy = {0,1,0,-1};
-        Queue<Pair> qu = new LinkedList<>();
-
         int result = 0;
         int notYet = 0;
 
         for(int i = 0; i < n; i++){
             st = new StringTokenizer(br.readLine());
             for(int j = 0; j < m; j++){
-                days[i][j] = -1;
                 int num = Integer.parseInt(st.nextToken());
                 tomatos[i][j] = num;
+                days[i][j] = -1;
                 if(num == 1){
-                    days[i][j] = 0;
                     qu.offer(new Pair(i,j));
-                }else if(num == 0){
-                    notYet++;
+                    days[i][j] = 0;
                 }
+                else if(num == 0) notYet++;
             }
         }
 
@@ -46,23 +44,21 @@ public class boj_7576Test {
 
         while(!qu.isEmpty()){
             Pair p = qu.poll();
+
             for(int i = 0; i < 4; i++){
                 int n_x = p.x + dx[i];
                 int n_y = p.y + dy[i];
                 if(n_x < 0 || n_x >= n || n_y < 0 || n_y >= m) continue;
                 if(tomatos[n_x][n_y] == -1 || days[n_x][n_y] != -1) continue;
                 qu.offer(new Pair(n_x,n_y));
-                notYet--;
                 days[n_x][n_y] = days[p.x][p.y] + 1;
-
-                if(days[n_x][n_y] > result) result = days[n_x][n_y];
+                notYet--;
+                if(result < days[n_x][n_y]) result = days[n_x][n_y];
             }
         }
         if(notYet > 0) System.out.println(-1);
         else System.out.println(result);
-
     }
-
 
     public static class Pair{
         int x,y;
