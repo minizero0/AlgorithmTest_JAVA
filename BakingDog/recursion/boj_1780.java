@@ -46,11 +46,15 @@ public class boj_1780 {
 
         partition(row, col, newSize);
         partition(row, col + newSize, newSize);
-        partition(row, col + newSize*2, newSize);
+        partition(row, col + 2*newSize, newSize);
+
         partition(row + newSize, col, newSize);
-        partition(row + newSize*2, col, newSize);
         partition(row + newSize, col + newSize, newSize);
-        partition(row + newSize*2, col + newSize*2, newSize);
+        partition(row + newSize, col + 2*newSize, newSize);
+
+        partition(row + 2*newSize, col, newSize);
+        partition(row + 2*newSize, col + newSize, newSize);
+        partition(row + 2*newSize, col + 2*newSize, newSize);
 
 
     }
