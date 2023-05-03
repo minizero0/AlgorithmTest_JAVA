@@ -34,7 +34,6 @@ public class boj_1992 {
             return;
         }
 
-
         int newSize = size / 2;
 
         sb.append("(");
