@@ -33,10 +33,10 @@ public class boj_15649 {
             return;
         }
 
-        for(int i = 0; i < N; i++){
+        for(int i = 1; i <= N; i++){
             if(!visit[i]){
                 visit[i] = true;
-                arr[depth] = i + 1;
+                arr[depth] = i;
                 dfs(N,M,depth+1);
                 visit[i] = false;
             }
