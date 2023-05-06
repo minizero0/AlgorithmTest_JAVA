@@ -12,13 +12,13 @@ public class boj_9663Test {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         N = Integer.parseInt(br.readLine());
-
         board = new int[N];
         nQueen(0);
         System.out.println(count);
+
     }
 
-    public static void nQueen(int depth){
+    static void nQueen(int depth){
         if(depth == N){
             count++;
             return;
@@ -26,19 +26,18 @@ public class boj_9663Test {
 
         for(int i = 0; i < N; i++){
             board[depth] = i;
-            if(possible(depth)){
+            if(check(depth)){
                 nQueen(depth+1);
             }
         }
     }
 
-    static boolean possible(int depth){
-        for(int i = 0; i < depth; i++){
-            if(board[depth] == board[i]){
+    static boolean check(int n){
+        for(int i = 0; i < n; i++){
+            if(board[n] == board[i])
                 return false;
-            }else if(Math.abs(depth-i) == Math.abs(board[depth] - board[i])){
+            else if(Math.abs(n - i) == Math.abs(board[n] - board[i]))
                 return false;
-            }
         }
         return true;
     }
