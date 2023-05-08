@@ -8,6 +8,7 @@ public class boj_9663Test {
     static int N;
     static int[] board;
     static int count = 0;
+    
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
