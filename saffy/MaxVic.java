@@ -32,7 +32,19 @@ public class MaxVic {
             return;
         }
 
-        for(int i = 0 start)
+        for(int i = start; i < arr.length; i++){
+            for(int j = i+1; j < arr.length; j++){
+                String temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+
+                dfs(i, cnt + 1);	// 깊이 +1
+                // 다시 swap 해서 되돌림
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
 
     }
 }
