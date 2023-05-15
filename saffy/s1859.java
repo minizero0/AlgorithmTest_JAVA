@@ -15,11 +15,10 @@ public class s1859 {
             int n = Integer.parseInt(br.readLine());
             st = new StringTokenizer(br.readLine());
             int arr[] = new int[n];
-            
+
             for(int j = 0; j < n; j++){
                 arr[j] = Integer.parseInt(st.nextToken());
             }
-
             int max = arr[n-1];
             long sum = 0;
             for(int j = n-2; j >= 0; j--){
