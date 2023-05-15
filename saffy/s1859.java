@@ -19,6 +19,7 @@ public class s1859 {
             for(int j = 0; j < n; j++){
                 arr[j] = Integer.parseInt(st.nextToken());
             }
+            
             int max = arr[n-1];
             long sum = 0;
             for(int j = n-2; j >= 0; j--){
