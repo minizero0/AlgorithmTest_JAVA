@@ -23,7 +23,7 @@ public class s1204 {
             }
 
             for(int j = 0; j < 100; j++){
-                if(arr[j] > max) {
+                if(arr[j] >= max) {
                     max = arr[j];
                     res = j;
                 }
