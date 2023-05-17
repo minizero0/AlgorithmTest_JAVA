@@ -6,21 +6,19 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class s2001Test {
-    static int[][] arr;
+    static int arr[][];
     static int N,M;
     static int MAX;
-
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
         int T = Integer.parseInt(br.readLine());
-
+        StringTokenizer st;
         for(int t = 1; t <= T; t++){
             st = new StringTokenizer(br.readLine());
             N = Integer.parseInt(st.nextToken());
             M = Integer.parseInt(st.nextToken());
-
             arr = new int[N][N];
+
             for(int i = 0; i < N; i++){
                 st = new StringTokenizer(br.readLine());
                 for(int j = 0; j < N; j++){
@@ -35,9 +33,10 @@ public class s2001Test {
                     getMax(i,j);
                 }
             }
-            System.out.println("#"+t+" "+MAX);
-        }
 
+            System.out.println("#"+t+" "+MAX);
+
+        }
 
     }
 
