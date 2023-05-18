@@ -13,7 +13,7 @@ public class boj_1992 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String s;
-        N = Integer.parseInt(br.readLine());
+            N = Integer.parseInt(br.readLine());
         board = new int[N][N];
 
         for(int i = 0; i < N; i++){
