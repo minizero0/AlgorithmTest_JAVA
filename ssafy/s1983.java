@@ -39,11 +39,16 @@ public class s1983 {
 
             int c = student / 10;
             int count = 0;
+            int num = 0;
 
             for(int i = 0; i < student; i++){
                 if(arr[n-1] < arr[i]) count++;
+                if(count == c) {
+                    count = 0;
+                    num++;
+                }
             }
-            System.out.println("#"+t+" "+score[count]);
+            System.out.println("#"+t+" "+score[num]);
 
         }
     }
