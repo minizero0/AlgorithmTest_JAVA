@@ -39,6 +39,7 @@ public class BOJ_11728 {
                 c[i] = b[b1++];
             }
         }
+        
         for(int i : c){
             bw.write(i+" ");
         }
