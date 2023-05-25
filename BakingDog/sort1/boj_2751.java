@@ -15,6 +15,7 @@ public class boj_2751 {
         }
 
         Collections.sort(arr);
+        
         for(int i = 0; i < arr.size(); i++){
             bw.write(arr.get(i)+"\n");
         }
