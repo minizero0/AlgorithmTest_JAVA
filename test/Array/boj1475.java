@@ -14,12 +14,21 @@ public class boj1475 {
             arr[str.charAt(i)-'0']++;
         }
 
+        int k = arr[6] + arr[9];
+
+        if(k % 2 == 0){
+            arr[6] = k / 2;
+            arr[9] = k / 2;
+        }else{
+            arr[6] = k / 2 + 1;
+            arr[9] = k / 2 + 1;
+        }
+
         int max = 0;
 
         for(int i = 0; i < arr.length; i++){
-            arr[ ]
+            max = Math.max(arr[i],max);
         }
-
-
+        System.out.println(max);
     }
 }
