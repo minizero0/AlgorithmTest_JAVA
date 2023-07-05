@@ -15,23 +15,19 @@ public class boj2493 {
 
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        for(int i = 1; i <= N; i++){
+        for(int i = 1; i <= N; i++) {
             int top = Integer.parseInt(st.nextToken());
-            while(!stack.isEmpty()){
-                if(stack.peek()[1] >= top){
+            while (!stack.isEmpty()) {
+                if (stack.peek()[1] >= top) {
                     System.out.print(stack.peek()[0] + " ");
                     break;
                 }
                 stack.pop();
             }
-            if(stack.isEmpty()){
+            if (stack.isEmpty()) {
                 System.out.print("0 ");
             }
-            stack.push(new int[] {i, top});
+            stack.push(new int[]{i, top});
         }
-
-
-
-
     }
 }
