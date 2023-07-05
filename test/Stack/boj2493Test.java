@@ -16,9 +16,9 @@ public class boj2493Test {
 
         for(int i = 1; i <= N; i++){
             int top = Integer.parseInt(st.nextToken());
-            while(!stack.isEmpty()){
-                if(stack.peek()[1] >= top){
-                    System.out.print(stack.peek()[0] +" ");
+            while(!stack.isEmpty()) {
+                if (stack.peek()[1] >= top) {
+                    System.out.print(stack.peek()[0] + " ");
                     break;
                 }
                 stack.pop();
