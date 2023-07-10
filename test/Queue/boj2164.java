@@ -15,6 +15,7 @@ public class boj2164 {
         for(int i = 1; i <= N; i++){
             queue.add(i);
         }
+
         while(queue.size() > 1){
             queue.remove();
             queue.add(queue.peek());
