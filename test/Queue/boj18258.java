@@ -37,7 +37,7 @@ public class boj18258 {
 
         for(int i = 0; i < N; i++){
             String str = br.readLine();
-            
+
             if(str.equals("pop")){
                 sb.append(b.pop()).append("\n");
             }else if(str.equals("size")){
