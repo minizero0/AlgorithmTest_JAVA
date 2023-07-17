@@ -11,37 +11,38 @@ public class boj1021_Test {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         LinkedList<Integer> deque = new LinkedList<>();
-        int count = 0;
 
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
 
         for(int i = 1; i <= N; i++) deque.add(i);
 
+        st = new StringTokenizer(br.readLine());
+        int count = 0;
+
         int arr[] = new int[M];
 
-
-        st = new StringTokenizer(br.readLine());
-
-        for(int i = 0; i < M; i++) arr[i] = Integer.parseInt(st.nextToken());
+        for(int i = 0; i < M; i++){
+            arr[i] = Integer.parseInt(st.nextToken());
+        }
 
         for(int i = 0; i < M; i++){
-            int target_idx = deque.indexOf(arr[i]);
-            int half_idx;
+            int target = deque.indexOf(arr[i]);
+            int half;
 
-            if(deque.size() % 2 == 0) half_idx = deque.size() / 2 - 1;
-            else half_idx = deque.size() / 2;
+            if(deque.size() == 0) half = deque.size() / 2 - 1;
+            else half = deque.size() / 2;
 
-            if(target_idx <= half_idx){
-                for(int j = 0; j < target_idx; j++){
-                    int temp = deque.pollFirst();
-                    deque.offerLast(temp);
+            if(target <= half){
+                for(int j = 0; j < target; j++){
+                    int n = deque.pollFirst();
+                    deque.offerLast(n);
                     count++;
                 }
             }else{
-                for(int j = 0; j < deque.size() - target_idx; j++){
-                    int temp = deque.pollLast();
-                    deque.offerFirst(temp);
+                for(int j = 0; j < deque.size() - target; j++){
+                    int n = deque.pollLast();
+                    deque.offerFirst(n);
                     count++;
                 }
             }
