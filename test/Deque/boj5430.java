@@ -19,7 +19,7 @@ public class boj5430 {
             LinkedList<Integer> deque = new LinkedList<>();
             String arr = br.readLine();
             for(String a : arr.substring(1,arr.length()-1).split(",")){
-                if (!s.equals(""))
+                if (!a.equals(""))
                     deque.add(Integer.valueOf(a));
             }
 
