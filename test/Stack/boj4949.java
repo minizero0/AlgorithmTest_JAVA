@@ -13,7 +13,9 @@ public class boj4949 {
         while(true){
             String str = br.readLine();
             boolean flag = true;
+            
             if(str.equals(".")) break;
+
             for(int i = 0; i < str.length(); i++){
                 if(str.charAt(i) == '(' || str.charAt(i) == '['){
                     stack.push(str.charAt(i));
