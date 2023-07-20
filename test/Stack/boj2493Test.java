@@ -12,20 +12,20 @@ public class boj2493Test {
         Stack<int[]> stack = new Stack<>();
 
         int N = Integer.parseInt(br.readLine());
+
         StringTokenizer st = new StringTokenizer(br.readLine());
 
         for(int i = 1; i <= N; i++){
             int top = Integer.parseInt(st.nextToken());
-            while(!stack.isEmpty()) {
-                if (stack.peek()[1] >= top) {
-                    System.out.print(stack.peek()[0] + " ");
+
+            while(!stack.isEmpty()){
+                if(stack.peek()[1] >= top){
+                    System.out.println(stack.peek()[1] + " ");
                     break;
                 }
                 stack.pop();
             }
-            if(stack.isEmpty()){
-                System.out.print("0 ");
-            }
+            if(stack.isEmpty()) System.out.println("0 ");
             stack.push(new int[] {i, top});
         }
     }

@@ -8,9 +8,9 @@ import java.util.Stack;
 public class boj1874Test {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        Stack<Integer> stack = new Stack<>();
         StringBuilder sb = new StringBuilder();
-
+        Stack<Integer> stack = new Stack<>();
+        
         int N = Integer.parseInt(br.readLine());
 
         int start = 0;
@@ -27,7 +27,6 @@ public class boj1874Test {
                 System.out.println("NO");
                 return;
             }
-
             stack.pop();
             sb.append("-\n");
         }
