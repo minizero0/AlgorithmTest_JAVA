@@ -7,19 +7,20 @@ import java.util.Stack;
 
 public class boj6198Test {
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        Stack<Integer> stack = new Stack<>();
+       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+       Stack<Integer> stack = new Stack<>();
+       int N = Integer.parseInt(br.readLine());
 
-        int N = Integer.parseInt(br.readLine());
+       int count = 0;
 
-        int count = 0;
-
-        for(int i = 0; i < N; i++){
-            int n = Integer.parseInt(br.readLine());
-            while(!stack.isEmpty() && stack.peek() <= n) stack.pop();
-            count += stack.size();
-            stack.push(n);
-        }
+       for(int i = 0; i < N ; i++){
+           int n = Integer.parseInt(br.readLine());
+           while(!stack.isEmpty() && stack.peek() <= n) {
+               stack.pop();
+           }
+           count += stack.size();
+           stack.push(n);
+       }
         System.out.println(count);
     }
 }
