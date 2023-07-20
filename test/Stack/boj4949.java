@@ -13,7 +13,7 @@ public class boj4949 {
         while(true){
             String str = br.readLine();
             boolean flag = true;
-            
+
             if(str.equals(".")) break;
 
             for(int i = 0; i < str.length(); i++){
