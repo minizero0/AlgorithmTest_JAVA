@@ -23,7 +23,7 @@ public class boj1629 {
         long value = pow(a,b/2,c);
         value = value * value % c;
         if(b % 2 == 0) return value;
-        
+
         return value * a % c;
     }
 }
