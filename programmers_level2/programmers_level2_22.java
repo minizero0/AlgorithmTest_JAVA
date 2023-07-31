@@ -25,11 +25,9 @@ public class programmers_level2_22 {
         int count = 0;
         int des = -1;
         while(des != location){
-            while(true){
-
+            int n = queue.peek().n1;
+            for(int i = 1; i < queue.size(); i++){
             }
-
-
 
             if(des != location){
                 queue.offer(queue.pop());
