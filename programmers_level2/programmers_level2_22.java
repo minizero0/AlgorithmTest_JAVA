@@ -2,22 +2,47 @@ package programmers_level2;
 
 //  프로세스
 
-import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
 
 public class programmers_level2_22 {
+    int n1;
+    int n2;
+    public programmers_level2_22(int n1, int n2) {
+        n1 = this.n1;
+        n2 = this.n2;
+    }
+
+
     public static int solution(int[] priorities, int location) {
         int answer = 0;
-        Deque<Integer> queue = new LinkedList<>();
+        Deque<programmers_level2_22> queue = new LinkedList<>();
 
-        int number = priorities[location];
         for(int i = 0; i < priorities.length; i++){
-            queue.offer(priorities[i]);
+            queue.offer(new programmers_level2_22(priorities[i], i));
         }
 
-        
-        return answer;
+        int count = 0;
+        int des = -1;
+        while(des != location){
+            while(true){
+
+            }
+
+
+
+            if(des != location){
+                queue.offer(queue.pop());
+                count++;
+            }else{
+                break;
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(solution(new int[] {2,1,3,2},2));
     }
 
 }
