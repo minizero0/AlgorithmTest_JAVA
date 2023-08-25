@@ -3,17 +3,16 @@ package out.production.AlgorithmTest_JAVA.Baekjoon.BFS;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.StreamTokenizer;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Boj7576 {
+public class Boj7576_Two {
     static int[][] tomatos;
     static int[][] days;
     static int[] dx;
     static int[] dy;
-    static int n, m;
+    static int n,m;
     static Queue<Pair> qu;
 
     public static void main(String[] args) throws IOException {
@@ -38,17 +37,12 @@ public class Boj7576 {
                 int num = Integer.parseInt(st.nextToken());
                 tomatos[i][j] = num;
                 days[i][j] = -1;
-                if (num == 1) {
+                if(num == 1){
                     qu.offer(new Pair(i, j));
                     days[i][j] = 0;
-                }else if(num == 0) notYet++;
+                }
+                if(num == 0) notYet++;
             }
-        }
-
-        //안익은 토마토가 하나도 없으면 리턴
-        if (notYet == 0) {
-            System.out.println(0);
-            return;
         }
 
         while (!qu.isEmpty()) {
@@ -57,21 +51,29 @@ public class Boj7576 {
             for (int i = 0; i < 4; i++) {
                 int n_x = p.x + dx[i];
                 int n_y = p.y + dy[i];
-                if(n_x < 0 || n_x >= n || n_y < 0 || n_y >= m) continue;
+
+                if (n_x < 0 || n_x >= n || n_y < 0 || n_y >= m) continue;
+
                 if(tomatos[n_x][n_y] == -1 || days[n_x][n_y] != -1) continue;
-                qu.offer(new Pair(n_x, n_y)); notYet--;
+
+                qu.offer(new Pair(n_x, n_y));
                 days[n_x][n_y] = days[p.x][p.y] + 1;
+                notYet--;
 
                 if(days[n_x][n_y] > result) result = days[n_x][n_y];
             }
         }
 
-        if(notYet > 0) System.out.println(-1);
-        else System.out.println(result);
+        if(notYet > 0){
+            System.out.println(-1);
+        }else{
+            System.out.println(result);
+        }
+
 
     }
 
-    static class Pair {
+    public static class Pair {
         int x, y;
 
         public int getX() {
@@ -96,4 +98,3 @@ public class Boj7576 {
         }
     }
 }
-
