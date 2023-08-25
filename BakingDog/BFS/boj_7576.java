@@ -65,7 +65,7 @@ public class boj_7576 {
         else System.out.println(result);
     }
 
-    public static class Pair{   
+    public static class Pair{
         int x,y;
 
         public Pair(int x, int y) {
