@@ -8,18 +8,19 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class Boj7576_Three {
-    static int tomatos[][];
-    static int days[][];
-    static int dx[];
-    static int dy[];
+    static int[][] tomatos;
+    static int[][] days;
+    static int[] dx;
+    static int[] dy;
     static int n, m;
     static Queue<Pair> qu;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int m = Integer.parseInt(st.nextToken());
-        int n = Integer.parseInt(st.nextToken());
+
+        m = Integer.parseInt(st.nextToken());
+        n = Integer.parseInt(st.nextToken());
 
         tomatos = new int[n][m];
         days = new int[n][m];
@@ -36,29 +37,28 @@ public class Boj7576_Three {
                 int num = Integer.parseInt(st.nextToken());
                 tomatos[i][j] = num;
                 days[i][j] = -1;
-                if(num == 1){
-                    qu.offer(new Pair(i,j));
+
+                if (num == 1) {
+                    qu.offer(new Pair(i, j));
                     days[i][j] = 0;
                 }
                 if (num == 0) notYet++;
             }
         }
 
-        while(!qu.isEmpty()){
+        while (!qu.isEmpty()) {
             Pair p = qu.poll();
 
             for (int i = 0; i < 4; i++) {
-                int n_x = p.x + dx[i];
-                int n_y = p.y + dy[i];
-
+                int n_x = dx[i] + p.x;
+                int n_y = dy[i] + p.y;
                 if(n_x < 0 || n_x >= n || n_y < 0 || n_y >= m) continue;
-                if(tomatos[n_x][n_y] == -1 || days[n_x][n_y] != -1) continue;
+                if(days[n_x][n_y] != -1 || tomatos[n_x][n_y] == -1) continue;
 
                 qu.offer(new Pair(n_x, n_y));
                 days[n_x][n_y] = days[p.x][p.y] + 1;
-                notYet--;
-
                 if(days[n_x][n_y] > count) count = days[n_x][n_y];
+                notYet--;
             }
         }
 
@@ -67,10 +67,10 @@ public class Boj7576_Three {
         } else {
             System.out.println(count);
         }
-
     }
 
-    public static class Pair{
+
+    public static class Pair {
         int x, y;
 
         public Pair(int x, int y) {
