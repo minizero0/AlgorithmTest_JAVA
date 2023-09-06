@@ -28,7 +28,7 @@ public class Boj4179_Test {
 
                     miro[n_x][n_y] = 'F';
                     fire.offer(new State(n_x, n_y, now.d + 1));
-                }
+                }   
             }
 
             size = jh.size();
