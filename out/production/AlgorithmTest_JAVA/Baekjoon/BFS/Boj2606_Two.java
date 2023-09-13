@@ -1,5 +1,6 @@
 package out.production.AlgorithmTest_JAVA.Baekjoon.BFS;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -22,15 +23,17 @@ public class Boj2606_Two {
 
         computer = new int[101][101];
         visit = new boolean[101];
+        cnt = 0;
 
         for (int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
+
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
 
-            //인접행렬
             computer[a][b] = computer[b][a] = 1;
         }
+
         bfs(1);
         System.out.println(cnt);
     }
@@ -40,13 +43,12 @@ public class Boj2606_Two {
         queue.add(start);
         visit[start] = true;
 
-        while (!queue.isEmpty()) {
+        while(!queue.isEmpty()){
             int temp = queue.poll();
-
             for (int i = 0; i < N; i++) {
                 if(computer[temp][i] == 1 && !visit[i]){
-                    cnt++;
                     queue.add(i);
+                    cnt++;
                     visit[i] = true;
                 }
             }

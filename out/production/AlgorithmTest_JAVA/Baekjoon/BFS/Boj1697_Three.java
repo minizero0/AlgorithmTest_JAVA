@@ -22,19 +22,19 @@ public class Boj1697_Three {
         else bfs(N);
     }
 
-    static void bfs(int n) {
-        Queue<Integer> q = new LinkedList<>();
-        q.add(n);
+    public static void bfs(int n) {
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(n);
         check[n] = 1;
 
-        while (!q.isEmpty()) {
-            int temp = q.poll();
+        while (!queue.isEmpty()) {
+            int temp = queue.poll();
 
             for (int i = 0; i < 3; i++) {
                 int next;
 
-                if(i == 0) next = temp + 1;
-                else if(i == 1) next = temp - 1;
+                if (i == 0) next = temp - 1;
+                else if(i == 1) next = temp + 1;
                 else next = temp * 2;
 
                 if(next == K) {
@@ -42,8 +42,8 @@ public class Boj1697_Three {
                     return;
                 }
 
-                if(next >= 0 && next < check.length && check[next] == 0) {
-                    q.add(next);
+                if(next >= 0 && next < check.length && check[next] == 0){
+                    queue.add(next);
                     check[next] = check[temp] + 1;
                 }
             }
