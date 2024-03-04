@@ -9,6 +9,9 @@ public class programmers_level0_2 {
         return answer;
     }
 
+    public static int hello(){
+        return 1;
+    }
     public static void main(String[] args) {
         System.out.println(solution(2,3));
     }
