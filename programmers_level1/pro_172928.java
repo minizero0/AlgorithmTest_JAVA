@@ -20,9 +20,6 @@ public class pro_172928 {
                 }
             }
         }
-
-
-
         int H_max = park.length;            //최대 세로 길이
         int W_max = park[0].length();       //최대 가로 길이
 
@@ -30,9 +27,6 @@ public class pro_172928 {
             boolean flag = true;
             char c = route.charAt(0);           //동서남북
             int r = route.charAt(2) - 48;       //이동할 거리
-
-            System.out.println(c + "," + r );
-
 
             if(c == 'N'){
                 if(H - r < 0) continue;
@@ -48,12 +42,8 @@ public class pro_172928 {
                 H -= r;
             }
             if(c == 'S') {
-                if (H + r > H_max) continue;
+                if (H + r >= H_max) continue;
                 for(int i = 0; i < r; i++){
-                    if(park.length == H + i){
-                        flag = false;
-                        break;
-                    }
                     if(park[H+i].charAt(W) == 'X'){
                         flag = false;
                         break;
@@ -71,12 +61,11 @@ public class pro_172928 {
                         break;
                     }
                 }
-
                 if(!flag) continue;
                 W -= r;
             }
             if(c == 'E') {
-                if (W + r > W_max) continue;
+                if (W + r >= W_max) continue;
                 for(int i = 0; i < r; i++){
                     if(park[H].charAt(W+i) == 'X'){
                         flag = false;
@@ -87,10 +76,7 @@ public class pro_172928 {
                 W += r;
             }
 
-            System.out.println(H + "," + W );
-
         }
-
 
         return new int[]{H,W};
     }
