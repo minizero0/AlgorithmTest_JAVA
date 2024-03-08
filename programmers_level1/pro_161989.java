@@ -14,11 +14,9 @@ public class pro_161989 {
                start = i;
                end = i + (m-1);
                answer++;
-
            }
        }
-
-        return answer;
+       return answer;
     }
 
     public static void main(String[] args) {
