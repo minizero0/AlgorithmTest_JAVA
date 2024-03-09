@@ -2,6 +2,7 @@ package programmers_level1;
 
 import java.util.Arrays;
 
+//가장 가까운 같은 글자
 public class pro_142086 {
     public static int[] solution(String s) {
         int[] answer = new int[s.length()];
