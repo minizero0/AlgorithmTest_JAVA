@@ -16,6 +16,7 @@ public class pro_12915 {
             strings[i] = list.get(i).substring(1);
         }
 
+        
         return strings;
     }
 
