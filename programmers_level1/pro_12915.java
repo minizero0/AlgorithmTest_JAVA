@@ -15,7 +15,6 @@ public class pro_12915 {
         for(int i = 0; i < list.size(); i++){
             strings[i] = list.get(i).substring(1);
         }
-
         
         return strings;
     }
