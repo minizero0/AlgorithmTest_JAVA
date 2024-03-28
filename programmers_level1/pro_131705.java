@@ -19,7 +19,6 @@ public class pro_131705 {
             for (int j = i+1; j < number.length-1; j++) {
                 for (int k = j + 1; k < number.length; k++) {
                     if(number[i]+number[j]+number[k] == 0){
-                        
                         answer++;
                     }
                 }
