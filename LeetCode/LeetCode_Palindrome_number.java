@@ -3,13 +3,11 @@ package LeetCode;
 public class LeetCode_Palindrome_number {
     public static boolean isPalindrome(int x) {
         String s = x + "";
-
-        int len = s.length();
-        int start = 0;
-        int end = len - 1;
+        int start =  0;
+        int end = s.length() - 1;
 
         while (start < end) {
-            if(s.charAt(start) != s.charAt(end)){
+            if (s.charAt(start) != s.charAt(end)) {
                 return false;
             }
             start++;
