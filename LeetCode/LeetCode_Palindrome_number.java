@@ -2,21 +2,24 @@ package LeetCode;
 
 public class LeetCode_Palindrome_number {
     public static boolean isPalindrome(int x) {
-        int num = x;
-        int num2 = 0;
-        while (x > 0) {
-            num2 += x % 10;
-            x /= 10;
-            num2 *= 10;
+        String s = x + "";
+
+        int len = s.length();
+        int start = 0;
+        int end = len - 1;
+
+        while (start < end) {
+            if(s.charAt(start) != s.charAt(end)){
+                return false;
+            }
+            start++;
+            end--;
         }
-        System.out.println(num2/10);
-        System.out.println(num/10);
-        if(num2/10 != num) return false;
-        else return true;
+        return true;
     }
 
     public static void main(String[] args) {
-        System.out.println(isPalindrome(-121));
+        System.out.println(isPalindrome(121));
 
     }
 }
