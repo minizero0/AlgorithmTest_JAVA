@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-//합배열 만들기 
+//합배열 만들기
 public class guganHab2 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -31,7 +31,7 @@ public class guganHab2 {
 
         for (int i = 1; i < row+1; i++) {
             for (int j = 1; j < row+1; j++) {
-                d[i][j] = d[i][j-1] + a[i][j] ;
+                d[i][j] = d[i][j-1] + d[i-1][j] - d[i-1][j-1] + a[i][j];
                 System.out.print(d[i][j] + " ");
             }
             System.out.println();
