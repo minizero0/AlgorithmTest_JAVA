@@ -6,6 +6,7 @@ public class pro_택배상자꺼내기_배열 {
         int count = 0;
 
         int storage[][] = new int[maxRow][w];
+
         int curNum = 1;
         int targetR = 0;
         int targetC = 0;
